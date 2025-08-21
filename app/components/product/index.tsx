@@ -21,7 +21,7 @@ const Product: React.FC = () => {
           ProdName="COUCH"
         />
       </div>
-      <div className="w-[97.8%] border-t-2 border-black mt-6 mb-8 mx-auto"></div>
+      <div className="w-[97.8%] border-t-2 border-black mt-6 mx-auto"></div>
     </div>
   );
 };
