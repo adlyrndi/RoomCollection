@@ -2,7 +2,7 @@ import ProductCard from "../productCard";
 
 const Product: React.FC = () => {
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gray-200 pt-8">
+    <div className="w-full min-h-screen flex flex-col bg-white pt-8">
       <div className="flex items-center justify-center">
         <h2 className="text-4xl crushed-regular font-bold pb-4 text-black">New Arrivals</h2>
       </div>

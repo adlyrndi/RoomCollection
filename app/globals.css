@@ -32,4 +32,18 @@ body {
   font-family: var(--font-crushed), sans-serif;
   font-weight: 400;
 }
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 20s linear infinite;
+}
+
+
 
