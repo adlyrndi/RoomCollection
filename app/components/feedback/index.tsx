@@ -4,7 +4,7 @@ export default function Feedback() {
   return (
     <section className="w-full border border-black p-6 md:p-13 flex flex-col lg:flex-row items-start lg:items-start justify-between gap-6">
       {/* Left Content */}
-      <div className="flex flex-col max-w-xl m-0 lg:ml-30 text-center lg:text-left">
+      <div className="flex flex-col max-w-xl m-0 lg:ml-20 text-center lg:text-left">
         <h2 className="text-[16px] md:text-[30px] font-bold text-black">
           Let us know anything
         </h2>
@@ -14,7 +14,7 @@ export default function Feedback() {
       </div>
 
       {/* Right Form */}
-      <form className="w-full lg:max-w-[800px] m-0 lg:mr-30">
+      <form className="w-full lg:max-w-[800px] m-0 lg:mr-20">
         <div className="flex w-full border border-black rounded-xl overflow-hidden">
           <textarea
             placeholder="Tell us anything..."
