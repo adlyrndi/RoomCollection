@@ -1,29 +1,39 @@
+import Image from "next/image";
+
 export default function Feedback() {
-    return (
-      <section className="w-full border border-black p-14 flex flex-col lg:flex-row items-center justify-between">
-        {/* Left Content */}
-        <div className="flex flex-col max-w-xl mt-8 mb-8">
-          <h2 className="text-[50px] font-bold text-black">Give us feedback</h2>
-          <p className="text-black text-[15px] mt-2">
-            Hi! We&apos;d love to hear from you. You can tell us anything about our room
-            collection.
-          </p>
-        </div>
-  
-        {/* Right Form */}
-        <form className="flex flex-col lg:flex-row items-center gap-5 w-full max-w-[800px]">
+  return (
+    <section className="w-full border border-black p-6 md:p-13 flex flex-col lg:flex-row items-start lg:items-start justify-between gap-6">
+      {/* Left Content */}
+      <div className="flex flex-col max-w-xl m-0 lg:ml-30 text-center lg:text-left">
+        <h2 className="text-[16px] md:text-[30px] font-bold text-black">
+          Let us know anything
+        </h2>
+        <p className="text-black text-[10px] md:text-[15px] ml-[-10px] md:ml-0 mt-2">
+        We&apos;d really love to hear from you.
+        </p>
+      </div>
+
+      {/* Right Form */}
+      <form className="w-full lg:max-w-[800px] m-0 lg:mr-30">
+        <div className="flex w-full border border-black rounded-xl overflow-hidden">
           <textarea
-            placeholder="Share your feedback..."
-            className="flex-1 min-h-[60px] border-[1px] border-black rounded-lg px-4 py-7 text-gray-700 resize-none focus:outline-none focus:ring-[0.5px] focus:ring-black"
+            placeholder="Tell us anything..."
+            className="flex-1 min-h-[60px] px-2 py-2 md:py-3 text-gray-700 resize-none focus:outline-none"
           />
           <button
             type="submit"
-            className="bg-black text-white rounded-xl px-15 py-[40.3px] font-medium hover:bg-gray-800 transition"
+            className="bg-black px-4 flex items-center justify-center hover:bg-gray-800 transition"
           >
-            Send feedback
+            <Image
+              src="/enter.svg"
+              alt="Send Feedback"
+              width={24}
+              height={24}
+              className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+            />
           </button>
-        </form>
-      </section>
-    );
-  }
-  
+        </div>
+      </form>
+    </section>
+  );
+}

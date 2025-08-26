@@ -14,9 +14,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow shadow-gray-300 w-full px-8 md:px-auto fixed top-0 left-0 z-50">
-      <div className="md:h-16 h-20 mx-auto md:px-4 container flex items-center justify-between">
-        {/* Logo */}
+    <nav className="bg-white shadow shadow-gray-300 w-full fixed top-[40px] left-0 z-50">
+      <div className="flex items-center justify-between w-full h-16 px-4 md:px-6 lg:px-8">
+        {/* Logo (mentok kiri) */}
         <div className="w-[200px] sm:w-[250px] md:w-[270px] lg:w-[300px] xl:w-[350px]">
           <Image
             src="/text-logo.svg"
@@ -27,7 +27,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Hamburger Button */}
+        {/* Hamburger Button (mentok kanan) */}
         <button
           className="text-gray-700 focus:outline-none"
           onClick={() => setOpen(true)}
@@ -44,7 +44,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Overlay transparan */}
+      {/* Overlay */}
       {open && (
         <div
           className="fixed inset-0 bg-transparent z-40"
@@ -75,7 +75,7 @@ export default function Navbar() {
         </div>
 
         {/* Menu Items */}
-        <ul className="flex flex-col space-y-4 p-6 text-xs text-black lg:text-md xl:text-lg">
+        <ul className="flex flex-col space-y-4 p-6 text-[8px] text-black lg:text-md xl:text-lg">
           {menus.map((menu) => (
             <li key={menu.path}>
               <Link
