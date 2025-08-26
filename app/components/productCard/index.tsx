@@ -34,21 +34,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <div className="w-full mt-4 space-y-1">
         {/* Row 1: ProductName + Price */}
         <div className="flex justify-between items-center">
-          <h3 className="text-xs md:text-md xl:text-[30px] text-gray-800 font-bold">
+          <h3 className="text-xs md:text-md lg:text-[25px] xl:text-[30px] text-gray-800 font-bold">
             {ProdName}
           </h3>
 
           {/* Price Box */}
           {price && (
-            <div className="flex items-center border-[2px] border-[#B81818] rounded-4xl px-6 py-1">
+            <div className="flex items-center border-[2px] border-[#B81818] rounded-4xl px-4 xl:px-6 py-1">
               <Image
                 src="/disc-icon.svg"
                 alt="Discount"
                 width={0}
                 height={0}
-                className="w-4 h-4 sm:w-5 sm:h-5 lg:w-9 lg:h-9 mr-10"
+                className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 xl:w-9 xl:h-9 mr-10"
               />
-              <span className="text-xs md:text-md xl:text-[23px] text-[#B81818]">
+              <span className="text-xs md:text-md lg:text-[18px] xl:text-[23px] text-[#B81818]">
                 {price}
               </span>
             </div>
@@ -57,16 +57,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Row 2: Title + Old Price (coret + discount) */}
         <div className="flex justify-between items-center">
-          <p className="text-[11px] md:text-sm xl:text-[20px] text-black">{title}</p>
+          <p className="text-[11px] md:text-sm lg:text-[15px] xl:text-[20px] text-black">{title}</p>
 
           <div className="flex items-center gap-2">
             {oldPrice && (
-              <p className="text-[11px] md:text-sm xl:text-[21px] text-gray-700 line-through">
+              <p className="text-[11px] md:text-sm lg:text-[17px] xl:text-[21px] text-gray-700 line-through">
                 {oldPrice}
               </p>
             )}
             {discount && (
-              <span className="text-[11px] md:text-sm xl:text-[21px] text-black">
+              <span className="text-[11px] md:text-sm lg:text-[17px] xl:text-[21px] text-black">
                 {discount}
               </span>
             )}
@@ -76,10 +76,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* Buttons */}
       <div className="mt-4 space-y-6">
-        <button className="w-full border-[1.4px] border-black py-4 text-sm md:text-md xl:text-[18px] font-medium text-black hover:bg-gray-100 transition">
+        <button className="w-full border-[1.4px] border-black py-4 text-sm md:text-md lg:text-[14px] xl:text-[18px] font-medium text-black hover:bg-gray-100 transition">
           Shop at Shopee
         </button>
-        <button className="w-full border-[1.4px] border-black py-4 text-sm md:text-md xl:text-[18px] font-medium text-black hover:bg-gray-100 transition">
+        <button className="w-full border-[1.4px] border-black py-4 text-sm md:text-md lg:text-[14px] xl:text-[18px] font-medium text-black hover:bg-gray-100 transition">
           Shop at Tokopedia
         </button>
       </div>
