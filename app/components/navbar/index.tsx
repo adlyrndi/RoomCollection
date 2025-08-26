@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="w-[200px] sm:w-[250px] md:w-[270px] lg:w-[300px] xl:w-[350px]">
           <Image
-            src="/logofont.svg"
+            src="/text-logo.svg"
             alt="Logo"
             width={400}
             height={40}
@@ -75,12 +75,12 @@ export default function Navbar() {
         </div>
 
         {/* Menu Items */}
-        <ul className="flex flex-col space-y-4 p-6 text-lg text-xs lg:text-md xl:text-lg">
+        <ul className="flex flex-col space-y-4 p-6 text-xs text-black lg:text-md xl:text-lg">
           {menus.map((menu) => (
             <li key={menu.path}>
               <Link
                 href={menu.path}
-                onClick={() => setOpen(false)} // biar sidebar nutup setelah klik
+                onClick={() => setOpen(false)}
                 className="block px-2 py-1"
               >
                 {menu.name}

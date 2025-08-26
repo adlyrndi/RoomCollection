@@ -3,34 +3,85 @@ import Image, { StaticImageData } from "next/image";
 interface ProductCardProps {
   image: StaticImageData | string;
   title: string;
-  price?: string;
+  price?: string; 
   ProdName: string;
+  oldPrice?: string; 
+  discount?: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ image, title, price, ProdName }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  image,
+  ProdName,
+  title,
+  price,
+  oldPrice,
+  discount,
+}) => {
   return (
     <div className="w-full flex flex-col">
-      <div className="relative w-full h-[480px] sm:h-[500px] lg:h-[760px] bg-white shadow-lg overflow-hidden group">
+      {/* Image */}
+      <div className="relative w-full h-[480px] sm:h-[500px] lg:h-[760px] bg-white shadow-lg overflow-hidden group rounded-2xl">
         <Image
           src={typeof image === "string" ? image : image.src}
-          alt={title}
+          alt={ProdName}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6 
-          bg-transparent group-hover:bg-black/40 group-hover:backdrop-blur-md transition-all duration-300 ease-in-out">
-          <h3 className="text-xl md:text-5xl font-bold crushed-regular uppercase">{ProdName}</h3>
-          <p className="text-xs md:text-md mt-2 uppercase mb-7">{title}</p>
-          <button className="mt-7 px-8 py-2 bg-white text-black rounded-[200px] font-bold uppercase 
-            transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105 hover:shadow-lg">
-            SHOP
-          </button>
+      </div>
+
+      {/* Info */}
+      <div className="w-full mt-4 space-y-1">
+        {/* Row 1: ProductName + Price */}
+        <div className="flex justify-between items-center">
+          <h3 className="text-xs md:text-md xl:text-[30px] text-gray-800 font-bold">
+            {ProdName}
+          </h3>
+
+          {/* Price Box */}
+          {price && (
+            <div className="flex items-center border-[2px] border-[#B81818] rounded-4xl px-6 py-1">
+              <Image
+                src="/disc-icon.svg"
+                alt="Discount"
+                width={0}
+                height={0}
+                className="w-4 h-4 sm:w-5 sm:h-5 lg:w-9 lg:h-9 mr-10"
+              />
+              <span className="text-xs md:text-md xl:text-[23px] text-[#B81818]">
+                {price}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Row 2: Title + Old Price (coret + discount) */}
+        <div className="flex justify-between items-center">
+          <p className="text-[11px] md:text-sm xl:text-[20px] text-black">{title}</p>
+
+          <div className="flex items-center gap-2">
+            {oldPrice && (
+              <p className="text-[11px] md:text-sm xl:text-[21px] text-gray-700 line-through">
+                {oldPrice}
+              </p>
+            )}
+            {discount && (
+              <span className="text-[11px] md:text-sm xl:text-[21px] text-black">
+                {discount}
+              </span>
+            )}
+          </div>
         </div>
       </div>
-      <div className="flex justify-between w-full mt-4">
-        <h3 className="text-xs md:text-md text-gray-800">{title}</h3>
-        {price && <p className="text-xs md:text-md text-gray-900">{price}</p>}
+
+      {/* Buttons */}
+      <div className="mt-4 space-y-6">
+        <button className="w-full border-[1.4px] border-black py-4 text-sm md:text-md xl:text-[18px] font-medium text-black hover:bg-gray-100 transition">
+          Shop at Shopee
+        </button>
+        <button className="w-full border-[1.4px] border-black py-4 text-sm md:text-md xl:text-[18px] font-medium text-black hover:bg-gray-100 transition">
+          Shop at Tokopedia
+        </button>
       </div>
     </div>
   );

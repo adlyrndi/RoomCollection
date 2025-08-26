@@ -3,6 +3,7 @@ import Navbar from "./components/navbar";
 import Product from "./components/product";
 import Footer from "./components/footer";
 import AdsBar from "./components/adsbar";
+import Feedback from "./components/feedback";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <AdsBar/>
       {/* <Slider /> */}
       <Product />
+      <Feedback />
       <Footer />
     </div>
   );

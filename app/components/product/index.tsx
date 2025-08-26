@@ -6,22 +6,25 @@ const Product: React.FC = () => {
       <div className="flex items-center justify-center">
         <h2 className="text-4xl crushed-regular font-bold pb-4 text-black">New Arrivals</h2>
       </div>
-      <div className="w-[97.8%] border-t-2 border-black mt-4 mb-8 mx-auto"></div>
-      <div className="flex justify-start w-full gap-8 px-8">
+      <div className="flex justify-start w-full gap-12 px-8">
         <ProductCard
           image="/Product_fix1.png"
-          title="Suited | Eau de Parfum"
+          title="Eau de Parfum | 50ML"
           price="Rp 229.000"
-          ProdName="SUITED"
+          oldPrice="Rp 250.000"
+          ProdName="Parlor Tux"
+          discount="-20%"
         />
         <ProductCard
           image="/Product_fix2.png"
           title="Couch | Eau de Parfum"
           price="Rp 229.000"
-          ProdName="COUCH"
+          oldPrice="Rp 250.000"
+          ProdName="Camellia Porch"
+          discount="-20%"
         />
       </div>
-      <div className="w-[97.8%] border-t-2 border-black mt-6 mx-auto"></div>
+      <div className="w-[100%] border-t-[1px] border-black mt-6 mx-auto"></div>
     </div>
   );
 };
