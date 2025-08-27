@@ -32,7 +32,7 @@ export default function Feedback() {
   };
 
   return (
-    <section className="w-full p-6 md:p-12 flex flex-col lg:flex-row items-start justify-between gap-6">
+    <section className="w-full p-8 md:p-12 flex flex-col lg:flex-row items-start justify-between gap-6">
       {/* Left Content */}
       <div className="flex flex-col max-w-xl m-0 lg:ml-20 text-left">
         <h2 className="text-[16px] md:text-[30px] font-bold text-black">
@@ -72,7 +72,7 @@ export default function Feedback() {
         {/* Notification tetap di bawah */}
         {submitted && (
           <p
-            className={`absolute left-0 mt-2 text-green-600 text-sm md:text-base transition-opacity duration-500 ${
+            className={`absolute left-0 mt-2 text-gray-500 font-semibold text-xs md:text-base transition-opacity duration-500 ${
               fadeOut ? "opacity-0" : "opacity-100"
             }`}
           >
