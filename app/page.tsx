@@ -14,7 +14,9 @@ export default function Home() {
       <Mainpage/>
       {/* <Slider /> */}
       {/* <Product /> */}
+      <hr className="border-t border-black w-screen" />
       <Feedback />
+      <hr className="border-t border-black w-screen" />
       <Footerv2/>
     </div>
   );

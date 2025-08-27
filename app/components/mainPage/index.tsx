@@ -17,19 +17,18 @@ export default function MainPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 700); // 2 detik biar smooth
+    }, 1500);
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div className="flex flex-col-reverse md:flex-row w-full max-w-7xl px-4 md:px-8 gap-40">
-        {/* Left Section - Logo */}
         <div className="flex items-center justify-center xl:justify-start md:w-1/2 pl-0 lg:pl-20">
           <Image
             src="/Logo-room.svg"
             alt="Logo"
-            width={80}  // default untuk mobile
+            width={80} 
             height={80}
             className="w-12 h-12 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-22 lg:h-22"
           />

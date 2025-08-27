@@ -7,9 +7,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const menus = [
-    { name: "SHOP AT SHOPEE", path: "/" },
-    { name: "SHOP AT TOKOPEDIA", path: "/A" },
-    { name: "ABOUT US", path: "/B" },
     { name: "GIVE US FEEDBACK", path: "/C" },
   ];
 
