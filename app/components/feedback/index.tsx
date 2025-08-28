@@ -46,7 +46,7 @@ export default function Feedback() {
       {/* Right Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-700 lg:max-w-[500px] xl:max-w-[800px] m-0 lg:mr-10 2xl:mr-30 relative"
+        className="w-full max-w-700 lg:max-w-[550px] xl:max-w-[700px] 2xl:max-w-[800px] m-0 lg:mr-10 2xl:mr-30 relative"
       >
         <div className="flex w-full border border-black rounded-xl overflow-hidden">
           <textarea
