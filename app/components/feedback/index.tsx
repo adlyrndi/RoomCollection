@@ -34,7 +34,7 @@ export default function Feedback() {
   return (
     <section id="feedback" className="w-full p-8  md:p-12 lg:p-10 xl:p-12 flex flex-col lg:flex-row items-start justify-between gap-6">
       {/* Left Content */}
-      <div className="flex flex-col max-w-xl m-0 lg:ml-15 xl:ml-20 text-left">
+      <div className="flex flex-col max-w-xl m-0 lg:ml-10 2xl:ml-30 text-left">
         <h2 className="font-neutralsans text-[16px] lg:text-[30px] font-bold text-black">
           Let us know anything
         </h2>
@@ -46,7 +46,7 @@ export default function Feedback() {
       {/* Right Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-700 lg:max-w-[450px] xl:max-w-[800px] m-0 lg:mr-20 relative"
+        className="w-full max-w-700 lg:max-w-[500px] xl:max-w-[800px] m-0 lg:mr-10 2xl:mr-30 relative"
       >
         <div className="flex w-full border border-black rounded-xl overflow-hidden">
           <textarea

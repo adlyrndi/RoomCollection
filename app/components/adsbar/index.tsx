@@ -8,9 +8,9 @@ export default function AdsBar() {
     // "New Arrivals Available Now",
     // "Join Our Membership Today",
     // "Exclusive Deals Just For You",
-    "WE’RE HAVING AN EXCLUSIVE DROP ON SEPTEMBER 2025. STAY TUNED FOR MORE INFORMATION",
+    "OUR WEBSITE IS CURRENTLY STILL UNDER DEVELOPMENT ",
     "──────",
-    "WE’RE HAVING AN EXCLUSIVE DROP ON SEPTEMBER 2025. STAY TUNED FOR MORE INFORMATION",
+    "WE’RE HAVING AN EXCLUSIVE DROP THIS SEPTEMBER",
     "──────",
   ];
 
