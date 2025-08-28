@@ -1,6 +1,7 @@
+/* Semua import harus paling atas */
+@import url("https://fonts.cdnfonts.com/css/crushed");
+@import url("https://fonts.googleapis.com/css2?family=Crushed&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.cdnfonts.com/css/crushed');
-@import url('https://fonts.googleapis.com/css2?family=Crushed&display=swap');
 
 
 :root {
@@ -13,6 +14,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-crushed: var(--font-crushed);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,16 +24,18 @@
   }
 }
 
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 .crushed-regular {
   font-family: var(--font-crushed), sans-serif;
   font-weight: 400;
 }
+
 @keyframes infinite-scroll {
   from {
     transform: translateX(0);
@@ -44,6 +48,9 @@ body {
 .animate-infinite-scroll {
   animation: infinite-scroll 20s linear infinite;
 }
-
-
-
+html {
+  scroll-behavior: smooth;
+}
+.font-neutralsans {
+  font-family: var(--font-neutralsans);
+}

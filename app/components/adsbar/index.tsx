@@ -11,7 +11,7 @@ export default function AdsBar() {
     "WE’RE HAVING AN EXCLUSIVE DROP ON SEPTEMBER 2025. STAY TUNED FOR MORE INFORMATION",
     "──────",
     "WE’RE HAVING AN EXCLUSIVE DROP ON SEPTEMBER 2025. STAY TUNED FOR MORE INFORMATION",
-    "──────", 
+    "──────",
   ];
 
   return (
@@ -21,12 +21,14 @@ export default function AdsBar() {
           {words.map((word, i) => (
             <li
               key={i}
-              className="text-base font-medium text-white whitespace-nowrap"
+              className="font-neutralsans text-[8px] md:text-[12px] lg:text-[15px] xl:text-[20px] font-medium text-white whitespace-nowrap"
             >
               {word}
             </li>
           ))}
         </ul>
+
+        {/* Copy persis sama, jangan ganti text size */}
         <ul
           className="flex items-center justify-center md:justify-start [&_li]:mx-8 animate-infinite-scroll"
           aria-hidden="true"
@@ -34,7 +36,7 @@ export default function AdsBar() {
           {words.map((word, i) => (
             <li
               key={i}
-              className="text-base font-medium text-white whitespace-nowrap"
+              className="font-neutralsans text-[8px] md:text-[12px] lg:text-[15px] xl:text-[20px] font-medium text-white whitespace-nowrap"
             >
               {word}
             </li>

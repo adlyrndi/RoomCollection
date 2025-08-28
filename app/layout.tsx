@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Crushed } from "next/font/google";
-import "./globals.css";
+import "./globals.css"; // hanya import CSS global sekali di sini
+import localFont from "next/font/local";
 
+const neutralsans = localFont({
+  src: [
+    {
+      path: "./fonts/neutralsans.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-neutralsans", 
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,22 +33,21 @@ export const metadata: Metadata = {
   title: "Room Collection",
   description: "Finest Perfume Collections",
   icons: {
-    icon: "/Logo-room.svg",       // favicon standar
-    shortcut: "/Logo-room.svg",   // desktop shortcut
-    apple: "/Logo-room.svg",      // iOS / iPadOS
+    icon: "/Logo-room.svg",       
+    shortcut: "/Logo-room.svg",   
+    apple: "/Logo-room.svg",      
   },
 };
 
-
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${crushed.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${crushed.variable} ${neutralsans.variable} antialiased`}
       >
         {children}
       </body>

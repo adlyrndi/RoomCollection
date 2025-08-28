@@ -32,13 +32,13 @@ export default function Feedback() {
   };
 
   return (
-    <section className="w-full p-8 md:p-12 flex flex-col lg:flex-row items-start justify-between gap-6">
+    <section id="feedback" className="w-full p-8  md:p-12 lg:p-10 xl:p-12 flex flex-col lg:flex-row items-start justify-between gap-6">
       {/* Left Content */}
-      <div className="flex flex-col max-w-xl m-0 lg:ml-20 text-left">
-        <h2 className="text-[16px] md:text-[30px] font-bold text-black">
+      <div className="flex flex-col max-w-xl m-0 lg:ml-15 xl:ml-20 text-left">
+        <h2 className="font-neutralsans text-[16px] lg:text-[30px] font-bold text-black">
           Let us know anything
         </h2>
-        <p className="text-black text-[10px] md:text-[15px] mt-2">
+        <p className="font-neutralsans text-black text-[8px] lg:text-[15px] mt-2">
           We&apos;d really love to hear from you.
         </p>
       </div>
@@ -46,13 +46,13 @@ export default function Feedback() {
       {/* Right Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full lg:max-w-[800px] m-0 lg:mr-20 relative"
+        className="w-full max-w-700 lg:max-w-[450px] xl:max-w-[800px] m-0 lg:mr-20 relative"
       >
         <div className="flex w-full border border-black rounded-xl overflow-hidden">
           <textarea
             name="feedback"
             placeholder="Tell us anything..."
-            className="flex-1 min-h-[60px] px-2 py-2 md:py-3 text-gray-700 text-xs xl:text-lg text-start resize-none focus:outline-none"
+            className="font-neutralsans flex-1 min-h-[60px] px-2 py-2 md:py-3 text-gray-700 text-xs xl:text-lg text-start resize-none focus:outline-none"
           />
 
           <button
@@ -72,7 +72,7 @@ export default function Feedback() {
         {/* Notification tetap di bawah */}
         {submitted && (
           <p
-            className={`absolute left-0 mt-2 text-gray-500 font-semibold text-xs md:text-base transition-opacity duration-500 ${
+            className={`absolute font-neutralsans left-0 mt-2 text-gray-500 font-semibold text-xs md:text-base transition-opacity duration-500 ${
               fadeOut ? "opacity-0" : "opacity-100"
             }`}
           >

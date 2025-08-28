@@ -1,19 +1,26 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const menus = [
-    { name: "GIVE US FEEDBACK", path: "/C" },
+    { name: "GIVE US FEEDBACK", id: "feedback" }, // pake id, bukan path
   ];
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpen(false);
+  };
 
   return (
     <nav className="bg-white shadow shadow-gray-300 w-full fixed top-[40px] left-0 z-50">
       <div className="flex items-center justify-between w-full h-16 px-4 md:px-6 lg:px-8">
-        {/* Logo (mentok kiri) */}
+        {/* Logo */}
         <div className="w-[200px] sm:w-[250px] md:w-[270px] lg:w-[300px] xl:w-[350px]">
           <Image
             src="/text-logo.svg"
@@ -24,7 +31,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Hamburger Button (mentok kanan) */}
+        {/* Hamburger Button */}
         <button
           className="text-gray-700 focus:outline-none"
           onClick={() => setOpen(true)}
@@ -72,16 +79,15 @@ export default function Navbar() {
         </div>
 
         {/* Menu Items */}
-        <ul className="flex flex-col space-y-4 p-6 text-[8px] text-black lg:text-md xl:text-lg">
+        <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] md:text-[13px] lg:text-[17px] xl:text-[20px] text-black">
           {menus.map((menu) => (
-            <li key={menu.path}>
-              <Link
-                href={menu.path}
-                onClick={() => setOpen(false)}
-                className="block px-2 py-1"
+            <li key={menu.id}>
+              <button
+                onClick={() => handleScroll(menu.id)}
+                className="block px-2 py-1 text-left w-full"
               >
                 {menu.name}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>
