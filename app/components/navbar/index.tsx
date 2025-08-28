@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className="bg-white shadow shadow-gray-300 w-full fixed top-[24px] md:top-[32px] lg:top-[32px] xl:top-[38px] 2xl:top-[38px] left-0 z-50">
       <div className="flex items-center justify-between w-full h-16 px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <div className="w-[150px] md:w-[200px] lg:w-[230px] xl:w-[250px] 2xl:w-[320px] ">
+        <div className="w-[150px] md:w-[200px] lg:w-[230px] xl:w-[250px] 2xl:w-[330px] ">
           <Image
             src="/text-logo.svg"
             alt="Logo"
