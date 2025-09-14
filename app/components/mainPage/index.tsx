@@ -52,8 +52,9 @@ export default function MainPage() {
             
             ))}
           </div>
-          <p className="font-neutralsans mt-7 md:mt-4 text-[8px] md:text-[12px] lg:text-[20px] text-black">
-            FRAGRANCE, REPRESENTED
+          <p className="font-neutralsans mt-4 md:mt-4 text-[15px] md:text-[18px] lg:text-[17px] xl:text-[19px] text-black">
+          Fragrance — Made (from/for) moments
+
           </p>
         </div>
       </div>

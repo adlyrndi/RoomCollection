@@ -10,7 +10,7 @@ export default function AdsBar() {
     // "Exclusive Deals Just For You",
     "OUR WEBSITE IS CURRENTLY STILL UNDER DEVELOPMENT ",
     "──────",
-    "WE’RE HAVING AN EXCLUSIVE DROP THIS SEPTEMBER",
+    "WE’RE HAVING AN EXCLUSIVE DROP THIS OCTOBER",
     "──────",
   ];
 
