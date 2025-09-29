@@ -4,9 +4,13 @@ const Product: React.FC = () => {
   return (
     <div className="w-full min-h-screen flex flex-col bg-white pt-8">
       <div className="flex items-center justify-center">
-        <h2 className="text-4xl crushed-regular font-bold pb-4 text-black">New Arrivals</h2>
+        <h2 className="text-4xl crushed-regular font-bold pb-4 text-black">
+          New Arrivals
+        </h2>
       </div>
-      <div className="flex justify-start w-full gap-12 px-8">
+
+      {/* Ganti flex jadi grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-8 mb-12">
         <ProductCard
           image="/Product_fix1.png"
           title="Eau de Parfum | 50ML"
@@ -24,9 +28,9 @@ const Product: React.FC = () => {
           discount="-20%"
         />
       </div>
-      <div className="w-[100%] border-t-[1px] border-black mt-6 mx-auto"></div>
     </div>
   );
 };
+
 
 export default Product;
