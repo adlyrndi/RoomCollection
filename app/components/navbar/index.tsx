@@ -110,7 +110,7 @@ export default function Navbar() {
           </div>
 
           {/* Menu Items */}
-          <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] md:text-[13px] lg:text-[17px] xl:text-[20px] text-black font-neutralsans">
+          <ul className="flex flex-col space-y-4 p-6 font-semibold text-[14px] md:text-[13px] lg:text-[17px] xl:text-[18px] text-black font-neutralsans">
             {menus.map((menu) => (
               <li key={menu.name} className="text-right">
                 {menu.link ? (
@@ -119,7 +119,7 @@ export default function Navbar() {
                     href={menu.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block px-2 py-1 underline"
+                    className="block px-2 py-1 hover:underline"
                   >
                     {menu.name}
                   </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
                   // ✅ menu biasa → scroll
                   <button
                     onClick={() => handleScroll(menu.id!)}
-                    className="block px-2 py-1 w-full text-right"
+                    className="block px-2 py-1 w-full text-right hover:underline"
                   >
                     {menu.name}
                   </button>

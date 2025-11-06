@@ -58,7 +58,7 @@ export default function Marketplace() {
       className={`transition-all duration-1000 ease-out w-full px-4 md:px-12 mb-12 text-center
     ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
     >
-      <h2 className="text-[20px] font-neutralsans md:text-[30px] text-black font-bold mb-6">
+      <h2 className="text-[18px] font-neutralsans md:text-[24px] text-black font-bold mb-6">
         Shop on Marketplace
       </h2>
 
@@ -72,7 +72,7 @@ export default function Marketplace() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 border-[1px] border-black hover:border-transparent rounded-lg px-6 py-4 md:py-5 text-[16px] lg:text-[20px] text-black hover:text-white transition shadow-md md:shadow-lg"
+              className="font-neutralsans flex items-center justify-center gap-3 border-[1px] border-black hover:border-transparent rounded-lg px-6 py-4 md:py-5 text-[14px] lg:text-[18px] text-black hover:text-white transition shadow-md md:shadow-lg"
               style={{
                 backgroundColor: isHovered ? item.hoverColor : "transparent",
                 transition: "background-color 0.3s ease",

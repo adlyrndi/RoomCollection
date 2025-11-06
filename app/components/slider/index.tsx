@@ -4,8 +4,8 @@ import Image from "next/image";
 
 // ✅ Desktop + Mobile version
 const images = [
-  { src: "/slider1.png", mobile: "/fix-slider.png" },
-  { src: "/slider2.png", mobile: "/slider-mbl2.png" },
+  { src: "/slider1-rev.png", mobile: "/fix-slider.png" },
+  { src: "/slider2-rev.png", mobile: "/slider-mbl2.png" },
 ];
 
 export default function FullSlider() {

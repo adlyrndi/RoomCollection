@@ -39,10 +39,10 @@ export default function Feedback() {
       >
         {/* Left Content */}
         <div className="flex flex-col max-w-xl m-0 lg:ml-10 2xl:ml-30 text-left">
-          <h2 className="font-neutralsans text-[16px] lg:text-[30px] font-bold text-black">
+          <h2 className="font-neutralsans text-[18px] lg:text-[24px] font-bold text-black">
             Let us know anything
           </h2>
-          <p className="font-neutralsans text-black text-[12px] lg:text-[15px] mt-2">
+          <p className="font-neutralsans text-black text-[14px] lg:text-[18px] mt-2">
             We&apos;d really love to hear from you.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Feedback() {
             <textarea
               name="feedback"
               placeholder="Tell us anything..."
-              className="font-neutralsans flex-1 min-h-[60px] px-2 py-2 md:py-3 text-gray-700 text-xs xl:text-lg text-start resize-none focus:outline-none"
+              className="font-neutralsans flex-1 min-h-[60px] px-2 py-2 md:py-3 text-gray-700 text-[14px] xl:text-[18px] text-start resize-none focus:outline-none"
             />
             <button
               type="submit"

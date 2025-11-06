@@ -47,11 +47,11 @@ export default function Footer() {
           </div>
 
           {/* Connect with us */}
-          <div className="mt-11 mb-12">
-            <h2 className="mb-3 text-sm md:text-md xl:text-[30px]">
+          <div className="mb-6">
+            <h2 className="mb-3 text-[18px] md:text-md xl:text-[24px] font-bold">
               Connect with us
             </h2>
-            <ul className="text-black underline text-xs md:text-md xl:xl:text-[20px]">
+            <ul className="text-black text-[14px] md:text-md xl:text-[18px]">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   Instagram
@@ -71,11 +71,11 @@ export default function Footer() {
           </div>
 
           {/* Marketplace */}
-          <div className="mt-11">
-            <h2 className="mb-3 text-sm md:text-md xl:text-[30px]">
+          <div className="">
+            <h2 className="mb-3 text-[18px] md:text-md xl:text-[24px] font-bold">
               Marketplace
             </h2>
-            <ul className="text-black underline text-xs md:text-md xl:text-[20px]">
+            <ul className="text-black text-[14px] md:text-md xl:text-[18px]">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   Shopee

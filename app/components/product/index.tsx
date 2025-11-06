@@ -24,9 +24,12 @@ const Product: React.FC = () => {
     };
   }, []);
   return (
-    <div ref={sectionRef}
-    className={`w-full min-h-screen flex flex-col bg-white pt-6 transition-all duration-1000 ease-out
-    ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+    <div
+  ref={sectionRef}
+  className={`w-full flex flex-col bg-white pt-6 mb-6 transition-all duration-1000 ease-out
+  ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+>
+
       {/* <div className="flex items-center justify-center">
         <h2 className="text-[20px] md:text-[35px] font-semibold pb-6 text-black">
         
