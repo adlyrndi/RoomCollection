@@ -1,8 +1,32 @@
+"use client";
 import ProductCard from "../productCard";
+import { useState, useEffect, useRef } from "react";
 
 const Product: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);   // ✅ hanya set ke true, tidak pernah set false lagi
+          observer.unobserve(entry.target); // ✅ stop observe biar ga trigger ulang
+        }
+      },
+      { threshold: 0.2 }
+    );
+  
+    if (sectionRef.current) observer.observe(sectionRef.current);
+  
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
   return (
-    <div className="w-full min-h-screen flex flex-col bg-white pt-6">
+    <div ref={sectionRef}
+    className={`w-full min-h-screen flex flex-col bg-white pt-6 transition-all duration-1000 ease-out
+    ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
       <div className="flex items-center justify-center">
         <h2 className="text-[20px] md:text-[50px] font-semibold pb-6 text-black">
         Dry Down Specialist Series

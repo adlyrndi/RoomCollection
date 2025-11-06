@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   height={0}
                   className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 xl:w-9 xl:h-9 mr-3 md:mr-10"
                 />
-                <span className="text-[15px] lg:text-[18px] xl:text-[23px] text-[#B81818]">
+                <span className="text-[16px] lg:text-[18px] xl:text-[23px] text-[#B81818]">
                   {price}
                 </span>
               </div>
@@ -69,18 +69,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           <div className="flex justify-between items-center">
-            <p className="text-[10px] lg:text-[15px] xl:text-[20px] text-black">
+            <p className="text-[12px] lg:text-[15px] xl:text-[20px] text-black">
               {title}
             </p>
 
             <div className="flex items-center gap-2">
               {oldPrice && (
-                <p className="text-[10px] md:text-sm lg:text-[17px] xl:text-[21px] text-gray-700 line-through">
+                <p className="text-[12px] md:text-sm lg:text-[17px] xl:text-[21px] text-gray-700 line-through">
                   {oldPrice}
                 </p>
               )}
               {discount && (
-                <span className="text-[10px] md:text-sm lg:text-[17px] xl:text-[21px] text-black">
+                <span className="text-[12px] md:text-sm lg:text-[17px] xl:text-[21px] text-black">
                   {discount}
                 </span>
               )}

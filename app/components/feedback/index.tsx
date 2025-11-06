@@ -8,10 +8,17 @@ export default function Feedback() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);   // ✅ hanya set ke true, tidak pernah set false lagi
+          observer.unobserve(entry.target); // ✅ stop observe biar ga trigger ulang
+        }
+      },
       { threshold: 0.2 }
     );
+  
     if (sectionRef.current) observer.observe(sectionRef.current);
+  
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
@@ -35,7 +42,7 @@ export default function Feedback() {
           <h2 className="font-neutralsans text-[16px] lg:text-[30px] font-bold text-black">
             Let us know anything
           </h2>
-          <p className="font-neutralsans text-black text-[8px] lg:text-[15px] mt-2">
+          <p className="font-neutralsans text-black text-[12px] lg:text-[15px] mt-2">
             We&apos;d really love to hear from you.
           </p>
         </div>

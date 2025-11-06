@@ -35,20 +35,26 @@ export default function Marketplace() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);   // ✅ hanya set ke true, tidak pernah set false lagi
+          observer.unobserve(entry.target); // ✅ stop observe biar ga trigger ulang
+        }
+      },
       { threshold: 0.2 }
     );
+  
     if (sectionRef.current) observer.observe(sectionRef.current);
+  
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
-  // ✅ perbaikan tipe state
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <div ref={sectionRef}
-    className={`transition-all duration-1000 ease-out w-full px-4 md:px-12 mb-12 text-center
+    className={`transition-all duration-1000 ease-out w-full px-4 md:px-12 mt-4 mb-12 text-center
     ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
       <h2 className="text-xl md:text-[30px] text-black font-semibold mb-6">
         Shop on a marketplace
@@ -64,7 +70,7 @@ export default function Marketplace() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 border-[1px] rounded-lg px-6 py-4 md:py-5 text-[16px] lg:text-[20px] text-black hover:text-white transition shadow-md md:shadow-lg"
+              className="flex items-center justify-center gap-3 border-[1px] border-black hover:border-transparent rounded-lg px-6 py-4 md:py-5 text-[16px] lg:text-[20px] text-black hover:text-white transition shadow-md md:shadow-lg"
               style={{
                 backgroundColor: isHovered ? item.hoverColor : "transparent",
                 transition: "background-color 0.3s ease",
@@ -73,18 +79,15 @@ export default function Marketplace() {
               onMouseLeave={() => setHoveredId(null)}
             >
               <Image
-                src={
-                  isHovered && item.iconHover
-                    ? item.iconHover
-                    : item.iconDefault
-                }
-                alt={item.name}
-                width={30}
-                height={30}
-                className={
-                  isHovered && !item.iconHover ? "filter invert brightness-0" : ""
-                }
-              />
+  src={isHovered && item.iconHover ? item.iconHover : item.iconDefault}
+  alt={item.name}
+  width={36}
+  height={36}
+  className={`w-[30px] h-[30px] object-contain ${
+    isHovered && !item.iconHover ? "filter invert brightness-0" : ""
+  }`}
+/>
+
               <span>{item.name}</span>
             </a>
           );

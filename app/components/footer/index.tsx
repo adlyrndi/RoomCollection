@@ -9,14 +9,22 @@ export default function Footer() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);   // ✅ hanya set ke true, tidak pernah set false lagi
+          observer.unobserve(entry.target); // ✅ stop observe biar ga trigger ulang
+        }
+      },
       { threshold: 0.2 }
     );
+  
     if (sectionRef.current) observer.observe(sectionRef.current);
+  
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
+  
 
   return (
     <footer ref={sectionRef}
