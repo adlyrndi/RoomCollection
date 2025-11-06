@@ -1,9 +1,27 @@
 // components/Footer.tsx
+"use client"
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 
 export default function Footer() {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
-    <footer className="bg-white text-black px-6">
+    <footer ref={sectionRef}
+    className={`transition-all duration-1000 ease-out bg-white text-black px-6
+    ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
       <div className="max-w-9xl mx-auto space-y-6">
         {/* Konten Utama */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-45">

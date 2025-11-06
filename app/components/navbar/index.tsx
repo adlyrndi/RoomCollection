@@ -5,10 +5,12 @@ import AdsBar from "../adsbar"; // panggil AdsBar di sini
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
   const menus = [
-    { name: "GIVE US FEEDBACK", id: "feedback" },
-  ];
+    { name: "SHOPEE", link: "https://shopee.co.id/roomcollection" },
+    { name: "TOKOPEDIA", link: "https://www.tokopedia.com/room-collection-perfumes" },
+    { name: "TIKTOK SHOP", link: "https://vt.tiktok.com/ZSyartMDj/?page=Mall" },
+    { name: "GIVE US FEEDBACK", id: "feedback" },  // tetap scroll
+  ];  
 
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
@@ -30,7 +32,7 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between w-full h-16 px-4 md:px-6 lg:px-8">
           {/* Logo */}
-          <div className="w-[150px] md:w-[200px] lg:w-[230px] xl:w-[250px] 2xl:w-[280px] ">
+          <div className="w-[190px] md:w-[200px] lg:w-[230px] xl:w-[300px] 2xl:w-[300px] ">
             <Image
               src="/text-logo.svg"
               alt="Logo"
@@ -52,7 +54,11 @@ export default function Navbar() {
               strokeWidth="2"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
@@ -82,7 +88,11 @@ export default function Navbar() {
                 strokeWidth="2"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -90,13 +100,26 @@ export default function Navbar() {
           {/* Menu Items */}
           <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] md:text-[13px] lg:text-[17px] xl:text-[20px] text-black">
             {menus.map((menu) => (
-              <li key={menu.id}>
-                <button
-                  onClick={() => handleScroll(menu.id)}
-                  className="block px-2 py-1 text-left w-full"
-                >
-                  {menu.name}
-                </button>
+              <li key={menu.name} className="text-right">
+                {menu.link ? (
+                  // ✅ menu marketplace → buka link eksternal
+                  <a
+                    href={menu.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-2 py-1 underline"
+                  >
+                    {menu.name}
+                  </a>
+                ) : (
+                  // ✅ menu biasa → scroll
+                  <button
+                    onClick={() => handleScroll(menu.id!)}
+                    className="block px-2 py-1 w-full text-right"
+                  >
+                    {menu.name}
+                  </button>
+                )}
               </li>
             ))}
           </ul>

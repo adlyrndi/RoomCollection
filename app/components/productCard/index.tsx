@@ -7,6 +7,8 @@ interface ProductCardProps {
   ProdName: string;
   oldPrice?: string; 
   discount?: string;
+  hoverTopText?: string;    // ✨ tambahan props optional
+  hoverBottomText?: string; // ✨ tambahan props optional
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -16,66 +18,77 @@ const ProductCard: React.FC<ProductCardProps> = ({
   price,
   oldPrice,
   discount,
+  hoverTopText = "Shop Now",      // default isi
+  hoverBottomText = "View Details" // default isi
 }) => {
   return (
-    <div className="w-full flex justify-center px-4 sm:px-6 lg:px-1">
-  <div className="w-full max-w-screen-xl flex flex-col">
-    {/* Image */}
-    <div className="relative w-full h-[480px] sm:h-[500px] lg:h-[600px] bg-white shadow-lg overflow-hidden group rounded-2xl">
-      <Image
-        src={typeof image === "string" ? image : image.src}
-        alt={ProdName}
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-      />
-    </div>
+    <div className="w-full flex justify-center px-1 lg:px-1">
+      <div className="w-full max-w-screen-xl flex flex-col">
+        {/* Image */}
+        <div className="relative w-full h-[480px] lg:h-[550px] bg-white shadow-lg overflow-hidden group rounded-xl">
+          <Image
+            src={typeof image === "string" ? image : image.src}
+            alt={ProdName}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+          />
 
-    {/* Info */}
-    <div className="w-full mt-4 space-y-1">
-      <div className="flex justify-between items-center">
-        <h3 className="text-xs md:text-md lg:text-[25px] xl:text-[30px] text-gray-800 font-bold">
-          {ProdName}
-        </h3>
-
-        {price && (
-          <div className="flex items-center border-[2px] border-[#B81818] rounded-4xl px-4 xl:px-6 py-1">
-            <Image
-              src="/disc-icon.svg"
-              alt="Discount"
-              width={0}
-              height={0}
-              className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 xl:w-9 xl:h-9 mr-10"
-            />
-            <span className="text-xs md:text-md lg:text-[18px] xl:text-[23px] text-[#B81818]">
-              {price}
-            </span>
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-[#414141]/60 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition duration-300">
+            <div className="mt-10 text-center">
+              <p className="text-white text-lg">{hoverTopText}</p>
+            </div>
+            <div className="mb-10 ml-15 mr-15 text-justify">
+              <p className="text-white text-md">{hoverBottomText}</p>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
 
-      <div className="flex justify-between items-center">
-        <p className="text-[11px] md:text-sm lg:text-[15px] xl:text-[20px] text-black">
-          {title}
-        </p>
+        {/* Info */}
+        <div className="w-full mt-4 space-y-1">
+          <div className="flex justify-between items-center">
+            <h3 className="text-[20px] lg:text-[25px] xl:text-[30px] text-gray-800 font-semibold">
+              {ProdName}
+            </h3>
 
-        <div className="flex items-center gap-2">
-          {oldPrice && (
-            <p className="text-[11px] md:text-sm lg:text-[17px] xl:text-[21px] text-gray-700 line-through">
-              {oldPrice}
+            {price && (
+              <div className="flex items-center border-[1.2px] md:border-[2px] border-[#B81818] rounded-4xl px-4 xl:px-6 py-0 md:py-1">
+                <Image
+                  src="/disc-icon.svg"
+                  alt="Discount"
+                  width={0}
+                  height={0}
+                  className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 xl:w-9 xl:h-9 mr-3 md:mr-10"
+                />
+                <span className="text-[15px] lg:text-[18px] xl:text-[23px] text-[#B81818]">
+                  {price}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <div className="flex justify-between items-center">
+            <p className="text-[10px] lg:text-[15px] xl:text-[20px] text-black">
+              {title}
             </p>
-          )}
-          {discount && (
-            <span className="text-[11px] md:text-sm lg:text-[17px] xl:text-[21px] text-black">
-              {discount}
-            </span>
-          )}
+
+            <div className="flex items-center gap-2">
+              {oldPrice && (
+                <p className="text-[10px] md:text-sm lg:text-[17px] xl:text-[21px] text-gray-700 line-through">
+                  {oldPrice}
+                </p>
+              )}
+              {discount && (
+                <span className="text-[10px] md:text-sm lg:text-[17px] xl:text-[21px] text-black">
+                  {discount}
+                </span>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
   );
 };
 
