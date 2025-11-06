@@ -48,7 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {/* Info */}
         <div className="w-full mt-4 space-y-1">
           <div className="flex justify-between items-center">
-            <h3 className="text-[20px] lg:text-[25px] xl:text-[30px] text-gray-800 font-semibold">
+            <h3 className="font-neutralsans text-[20px] lg:text-[25px] xl:text-[24px] text-black font-bold">
               {ProdName}
             </h3>
 
@@ -69,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           <div className="flex justify-between items-center">
-            <p className="text-[12px] lg:text-[15px] xl:text-[20px] text-black">
+            <p className="text-[12px] lg:text-[15px] xl:text-[18px] text-black">
               {title}
             </p>
 

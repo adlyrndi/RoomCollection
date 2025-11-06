@@ -1,5 +1,5 @@
 import Navbar from "./components/navbar";
-// import Slider from "./components/slider";
+import Slider from "./components/slider";
 import Product from "./components/product";
 // import Footerv2 from "./components/footerv2";
 import Footer from "./components/footer";
@@ -14,7 +14,7 @@ export default function Home() {
       {/* <AdsBar/> */}
       <Navbar />
       {/* <Mainpage/> */}
-      {/* <Slider /> */}
+      <Slider />
       <Product />
       <Marketplace/>
       {/* <hr className="border-t border-black w-screen" /> */}

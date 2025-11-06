@@ -7,10 +7,13 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const menus = [
     { name: "SHOPEE", link: "https://shopee.co.id/roomcollection" },
-    { name: "TOKOPEDIA", link: "https://www.tokopedia.com/room-collection-perfumes" },
+    {
+      name: "TOKOPEDIA",
+      link: "https://www.tokopedia.com/room-collection-perfumes",
+    },
     { name: "TIKTOK SHOP", link: "https://vt.tiktok.com/ZSyartMDj/?page=Mall" },
-    { name: "GIVE US FEEDBACK", id: "feedback" },  // tetap scroll
-  ];  
+    { name: "GIVE US FEEDBACK", id: "feedback" }, // tetap scroll
+  ];
 
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
@@ -21,7 +24,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full sticky top-0 left-0 z-50">
+    <div className="w-full sticky top-0 left-0 z-50" id="nav">
       {/* AdsBar di atas */}
       <AdsBar />
 
@@ -44,7 +47,16 @@ export default function Navbar() {
 
           {/* Hamburger Button */}
           <button
-            className="text-gray-700 focus:outline-none"
+            className="
+    text-gray-700 
+    p-2 
+    rounded-full 
+    hover:bg-black/6 
+    hover:scale-110 
+    transition-all 
+    duration-300 
+    focus:outline-none
+  "
             onClick={() => setOpen(true)}
           >
             <svg
@@ -98,7 +110,7 @@ export default function Navbar() {
           </div>
 
           {/* Menu Items */}
-          <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] md:text-[13px] lg:text-[17px] xl:text-[20px] text-black">
+          <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] md:text-[13px] lg:text-[17px] xl:text-[20px] text-black font-neutralsans">
             {menus.map((menu) => (
               <li key={menu.name} className="text-right">
                 {menu.link ? (

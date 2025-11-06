@@ -1,40 +1,60 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import slide1 from "../../images/Tabpanel.png";
 
-export default function Slider() {
-  const images = [slide1, slide1, slide1];
-  const [currentSlide, setCurrentSlide] = useState(0);
+const images = [
+  { src: "/slider1.png" },
+  { src: "/slider2.png" },
+  { src: "/slider3.png" },
+  { src: "/slider4.png" },
+];
+
+export default function FullSlider() {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 4000);
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 8000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      <div
-        className="flex w-full h-full transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {images.map((img, index) => (
-          <div key={index} className="relative w-full h-full flex-shrink-0">
-            <Image src={img} alt={`Slide ${index + 1}`} fill className="object-cover" />
-          </div>
-        ))}
-      </div>
+    <div className="relative w-full aspect-[16/9] bg-black overflow-hidden">
+      {/* Image Slides */}
+      {images.map((img, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-[2000ms] ease-out ${
+            index === i ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={img.src}
+            alt=""
+            fill
+            priority
+            className="
+              object-cover
+              object-center
+            "
+          />
+        </div>
+      ))}
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-13">
-        {images.map((_, index) => (
+      {/* Indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-50">
+        {images.map((_, idx) => (
           <button
-            key={index}
-            className={`h-[2px] w-28 rounded-full transition-all ${
-              currentSlide === index ? "bg-blue-500" : "bg-gray-400"
-            }`}
-            onClick={() => setCurrentSlide(index)}
+            key={idx}
+            onClick={() => setIndex(idx)}
+            className={`
+              transition-all duration-500 rounded-full
+              ${index === idx
+                ? "h-[4px] w-16 bg-white"
+                : "h-[2px] w-10 bg-white/40"
+              }
+            `}
           />
         ))}
       </div>

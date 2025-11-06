@@ -27,16 +27,16 @@ const Product: React.FC = () => {
     <div ref={sectionRef}
     className={`w-full min-h-screen flex flex-col bg-white pt-6 transition-all duration-1000 ease-out
     ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-      <div className="flex items-center justify-center">
-        <h2 className="text-[20px] md:text-[50px] font-semibold pb-6 text-black">
-        Dry Down Specialist Series
+      {/* <div className="flex items-center justify-center">
+        <h2 className="text-[20px] md:text-[35px] font-semibold pb-6 text-black">
+        
         </h2>
-      </div>
+      </div> */}
 
       {/* Ganti flex jadi grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-5 md:px-8 mb-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-5 py-5 md:px-8 md:py-4 mb-5">
         <ProductCard
-          image="/fixpt.jpg"
+          image="/ptv2.png"
           title="Eau de Parfum | 50ML"
           price="Rp 228.650"
           oldPrice="Rp 269.000"
@@ -47,8 +47,8 @@ const Product: React.FC = () => {
         />
 
         <ProductCard
-          image="/fixcp.jpg"
-          title="Couch | Eau de Parfum"
+          image="/cpv2.png"
+          title="Eau de Parfum | 50ML"
           price="Rp 228.650"
           oldPrice="Rp 269.000"
           ProdName="Camellia Porch"
