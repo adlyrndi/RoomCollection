@@ -2,16 +2,25 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+// ✅ Desktop + Mobile version
 const images = [
-  { src: "/slider1.png" },
-  { src: "/slider2.png" },
-  { src: "/slider3.png" },
-  { src: "/slider4.png" },
+  { src: "/slider1.png", mobile: "/fix-slider.png" },
+  { src: "/slider2.png", mobile: "/slider-mbl2.png" },
 ];
 
 export default function FullSlider() {
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // ✅ Detect mobile screen
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -20,7 +29,10 @@ export default function FullSlider() {
   }, []);
 
   return (
-    <div className="relative w-full aspect-[16/9] bg-black overflow-hidden">
+    <div
+      className="relative w-full overflow-hidden bg-black"
+      style={{ height: "calc(100vh - 88px)" }}
+    >
       {/* Image Slides */}
       {images.map((img, i) => (
         <div
@@ -30,20 +42,17 @@ export default function FullSlider() {
           }`}
         >
           <Image
-            src={img.src}
+            src={isMobile ? img.mobile : img.src}
             alt=""
             fill
             priority
-            className="
-              object-cover
-              object-center
-            "
+            className="object-cover"
           />
         </div>
       ))}
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-50">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-50">
         {images.map((_, idx) => (
           <button
             key={idx}
