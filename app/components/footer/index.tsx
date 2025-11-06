@@ -30,7 +30,7 @@ export default function Footer() {
     <footer ref={sectionRef}
     className={`transition-all duration-1000 ease-out bg-white text-black px-6
     ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-      <div className="max-w-9xl mx-auto space-y-6">
+      <div className="max-w-9xl mx-auto space-y-6 lg:mt-7">
         {/* Konten Utama */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-45">
           {/* Logo */}
