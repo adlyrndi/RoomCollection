@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   title: "Room Collection",
   description: "Finest Perfume Collections",
   icons: {
-    icon: "/Logo-room.svg",       
-    shortcut: "/Logo-room.svg",   
-    apple: "/Logo-room.svg",      
+    icon: "/logo-abu.svg",       
+    shortcut: "/logo-abu.svg",   
+    apple: "/logo-abu.svg",      
   },
 };
 
