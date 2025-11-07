@@ -66,7 +66,7 @@ export default function Marketplace() {
       className={`transition-all duration-1000 ease-out w-full px-4 md:px-12 mb-12 text-center
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
     >
-      <h2 className="text-[16px] lg:text-[20px] xl:text-[24px] font-bold mb-6">
+      <h2 className="font-neutralsans text-[16px] lg:text-[20px] xl:text-[24px] font-bold mb-6">
         Shop on Marketplace
       </h2>
 
@@ -81,7 +81,7 @@ export default function Marketplace() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 border-[1px] border-black rounded-lg px-6 py-3 lg:py-5 text-[12px] lg:text-[16px] xl:text-[18px] text-black shadow-md md:shadow-lg
-                focus:outline-none active:outline-none visited:text-black" // ✅ reset efek
+                focus:outline-none active:outline-none visited:text-black hover:text-white" // ✅ reset efek
               style={{
                 backgroundColor: isHovered ? item.hoverColor : "transparent",
                 transition: "background-color 0.3s ease",
