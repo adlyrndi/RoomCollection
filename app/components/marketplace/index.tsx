@@ -66,7 +66,7 @@ export default function Marketplace() {
       className={`transition-all duration-1000 ease-out w-full px-4 md:px-12 mb-12 text-center
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
     >
-      <h2 className="font-neutralsans text-[16px] lg:text-[20px] xl:text-[24px] font-bold mb-6">
+      <h2 className="font-neutralsans text-black text-[16px] lg:text-[20px] xl:text-[24px] font-bold mb-6">
         Shop on Marketplace
       </h2>
 
