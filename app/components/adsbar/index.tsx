@@ -17,7 +17,7 @@ export default function AdsBar() {
           {words.map((word, i) => (
             <li
               key={i}
-              className="font-neutralsans text-[14px] lg:text-[15px] xl:text-[18px] font-medium text-white whitespace-nowrap"
+              className="font-neutralsans text-[14px] lg:text-[16px] xl:text-[18px] font-medium text-white whitespace-nowrap"
             >
               {word}
             </li>
@@ -32,7 +32,7 @@ export default function AdsBar() {
           {words.map((word, i) => (
             <li
               key={i}
-              className="font-neutralsans text-[12px] md:text-[12px] lg:text-[15px] xl:text-[17px] font-medium text-white whitespace-nowrap"
+              className="font-neutralsans text-[12px] lg:text-[16px] xl:text-[18px] font-medium text-white whitespace-nowrap"
             >
               {word}
             </li>

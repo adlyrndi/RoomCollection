@@ -30,28 +30,29 @@ export default function Footer() {
     <footer ref={sectionRef}
     className={`transition-all duration-1000 ease-out bg-white text-black px-6
     ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-      <div className="max-w-9xl mx-auto space-y-6 lg:mt-7">
+      <div className="max-w-9xl mx-auto space-y-6 mt-7 lg:mt-7">
         {/* Konten Utama */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-45">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-12 lg:gap-x-30">
           {/* Logo */}
           <div className="flex justify-start">
-            <div className="w-[250px] sm:w-[250px] md:w-[270px] lg:w-[300px] xl:w-[500px]">
-              <Image
-                src="/text-logo.svg"
-                alt="Logo"
-                width={400}
-                height={40}
-                className="w-full h-auto xl:-mt-19"
-              />
-            </div>
+          <div className="max-md:mb-10 md:ml-5 w-54 sm:w-72 md:w-64 lg:w-72 xl:w-75 relative h-9 md:h-6  ">
+  <Image
+    src="/logo-test.svg"
+    alt="Logo"
+    fill
+    style={{ objectFit: "contain" }}
+  />
+</div>
+
+
           </div>
 
           {/* Connect with us */}
-          <div className="mb-6">
-            <h2 className="mb-3 text-[18px] md:text-md xl:text-[24px] font-bold">
+          <div className="mb-6 md:ml-15 lg:ml-20">
+          <h2 className="mb-3 text-[16px] lg:text-[20px] xl:text-[24px] font-bold">
               Connect with us
             </h2>
-            <ul className="text-black text-[14px] md:text-md xl:text-[18px]">
+            <ul className="text-black text-[12px] lg:text-[16px] xl:text-[18px]">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   Instagram
@@ -71,11 +72,11 @@ export default function Footer() {
           </div>
 
           {/* Marketplace */}
-          <div className="">
-            <h2 className="mb-3 text-[18px] md:text-md xl:text-[24px] font-bold">
+          <div className="md:ml-15 lg:ml-20">
+            <h2 className="mb-3 text-[16px] lg:text-[20px] xl:text-[24px] font-bold">
               Marketplace
             </h2>
-            <ul className="text-black text-[14px] md:text-md xl:text-[18px]">
+            <ul className="text-black text-[12px] lg:text-[16px] xl:text-[18px]">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   Shopee
@@ -96,7 +97,7 @@ export default function Footer() {
         </div>
 
         {/* Bagian bawah */}
-        <div className="flex flex-col items-center justify-between text-xs lg:text-[20px] mb-12">
+        <div className="flex flex-col items-center justify-between text-[12px] lg:text-[16px] xl:text-[18px] mb-12">
           <p>© 2025, ROOM COLLECTION Perfumes.</p>
         </div>
       </div>

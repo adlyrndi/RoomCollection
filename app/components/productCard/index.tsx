@@ -1,4 +1,6 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
+import { useState, useEffect } from "react";
 
 interface ProductCardProps {
   image: StaticImageData | string;
@@ -7,8 +9,8 @@ interface ProductCardProps {
   ProdName: string;
   oldPrice?: string; 
   discount?: string;
-  hoverTopText?: string;    // ✨ tambahan props optional
-  hoverBottomText?: string; // ✨ tambahan props optional
+  hoverTopText?: string;    
+  hoverBottomText?: string; 
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -18,14 +20,36 @@ const ProductCard: React.FC<ProductCardProps> = ({
   price,
   oldPrice,
   discount,
-  hoverTopText = "Shop Now",      // default isi
-  hoverBottomText = "View Details" // default isi
+  hoverTopText = "Shop Now",
+  hoverBottomText = "View Details"
 }) => {
+  const [overlayVisible, setOverlayVisible] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  // detect screen size
+  useEffect(() => {
+    const checkScreen = () => setIsDesktop(window.innerWidth >= 1024);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  // auto-hide overlay 5 detik untuk tab/mobile
+  useEffect(() => {
+    if (overlayVisible && !isDesktop) {
+      const timer = setTimeout(() => setOverlayVisible(false), 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [overlayVisible, isDesktop]);
+
   return (
     <div className="w-full flex justify-center px-1 lg:px-1">
       <div className="w-full max-w-screen-xl flex flex-col">
         {/* Image */}
-        <div className="relative w-full h-[430px] lg:h-[550px] bg-white shadow-lg overflow-hidden group rounded-xl">
+        <div
+          className="relative w-full h-[430px] lg:h-[500px] xl:h-[600px] bg-white shadow-lg overflow-hidden group rounded-xl cursor-pointer"
+          onClick={() => !isDesktop && setOverlayVisible(!overlayVisible)} // hanya tab/mobile
+        >
           <Image
             src={typeof image === "string" ? image : image.src}
             alt={ProdName}
@@ -35,12 +59,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
           />
 
           {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-[#414141]/60 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition duration-300">
+          <div
+            className={`absolute inset-0 bg-[#414141]/60 flex flex-col justify-between transition duration-300
+              ${
+                isDesktop
+                  ? "opacity-0 group-hover:opacity-100"
+                  : overlayVisible
+                  ? "opacity-100"
+                  : "opacity-0"
+              }`}
+          >
             <div className="mt-10 text-center">
-              <p className="text-white text-[18px]">{hoverTopText}</p>
+              <p className="text-white text-[16px] lg:text-[20px] xl:text-[24px]">{hoverTopText}</p>
             </div>
-            <div className="mb-10 ml-15 mr-15 text-justify">
-              <p className="text-white text-[16px]">{hoverBottomText}</p>
+            <div className="mb-10 ml-10 mr-10 lg:ml-15 lg:mr-15 text-justify">
+              <p className="text-white text-[12px] lg:text-[16px] xl:text-[18px]">{hoverBottomText}</p>
             </div>
           </div>
         </div>
@@ -48,7 +81,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {/* Info */}
         <div className="w-full mt-4 space-y-1">
           <div className="flex justify-between items-center">
-            <h3 className="font-neutralsans text-[18px] lg:text-[25px] xl:text-[24px] text-black font-bold">
+            <h3 className="font-neutralsans text-[16px] lg:text-[20px] xl:text-[24px] text-black font-bold">
               {ProdName}
             </h3>
 
@@ -59,9 +92,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   alt="Discount"
                   width={0}
                   height={0}
-                  className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6  mr-3 md:mr-5"
+                  className="w-4.5 h-5 xl:h-6 xl:w-6 mr-3 md:mr-5"
                 />
-                <span className="font-neutralsans text-[12px] lg:text-[18px] xl:text-[18px] text-[#B81818]">
+                <span className="font-neutralsans text-[12px] lg:text-[16px] xl:text-[18px] text-[#B81818]">
                   {price}
                 </span>
               </div>
@@ -69,18 +102,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           <div className="flex justify-between items-center">
-            <p className="text-[12px] lg:text-[15px] xl:text-[18px] text-black font-neutralsans">
+            <p className="text-[12px] lg:text-[16px] xl:text-[18px] text-black font-neutralsans">
               {title}
             </p>
 
             <div className="flex items-center gap-2">
               {oldPrice && (
-                <p className="text-[12px] md:text-sm lg:text-[17px] xl:text-[18px] text-black line-through font-neutralsans">
+                <p className="text-[12px] lg:text-[16px] xl:text-[18px] text-black line-through font-neutralsans">
                   {oldPrice}
                 </p>
               )}
               {discount && (
-                <span className="text-[12px] md:text-sm lg:text-[17px] xl:text-[18px] text-black font-neutralsans">
+                <span className="text-[12px] lg:text-[16px] xl:text-[18px] text-black font-neutralsans">
                   {discount}
                 </span>
               )}

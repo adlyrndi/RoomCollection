@@ -110,7 +110,7 @@ export default function Navbar() {
           </div>
 
           {/* Menu Items */}
-          <ul className="flex flex-col space-y-4 p-6 font-semibold text-[14px] md:text-[13px] lg:text-[17px] xl:text-[18px] text-black font-neutralsans">
+          <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] lg:text-[16px] xl:text-[18px] text-black font-neutralsans">
             {menus.map((menu) => (
               <li key={menu.name} className="text-right">
                 {menu.link ? (
