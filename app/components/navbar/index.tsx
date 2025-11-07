@@ -1,34 +1,48 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import AdsBar from "../adsbar"; // panggil AdsBar di sini
+import AdsBar from "../adsbar";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
+
   const menus = [
     { name: "SHOPEE", link: "https://shopee.co.id/roomcollection" },
     {
       name: "TOKOPEDIA",
       link: "https://www.tokopedia.com/room-collection-perfumes",
     },
-    { name: "TIKTOK SHOP", link: "https://vt.tiktok.com/ZSyartMDj/?page=Mall" },
-    { name: "GIVE US FEEDBACK", id: "feedback" }, // tetap scroll
+    {
+      name: "TIKTOK SHOP",
+      link: isMobile
+        ? "https://vt.tiktok.com/ZSyartMDj/?page=Mall" 
+        : "https://www.tiktok.com/@room___collection", 
+    },
+    { name: "GIVE US FEEDBACK", id: "feedback" },
   ];
 
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
     setOpen(false);
   };
 
   return (
     <div className="w-full sticky top-0 left-0 z-50" id="nav">
-      {/* AdsBar di atas */}
       <AdsBar />
 
-      {/* Navbar */}
       <nav
         className="bg-white shadow shadow-gray-300 w-full left-0 z-40 
         sticky top-0 transition-all duration-300"
@@ -45,18 +59,12 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Hamburger Button */}
+          {/* Hamburger */}
           <button
             className="
-    text-gray-700 
-    p-2 
-    rounded-full 
-    hover:bg-black/6 
-    hover:scale-110 
-    transition-all 
-    duration-300 
-    focus:outline-none
-  "
+              text-black p-2 rounded-full hover:bg-black/6 hover:scale-110 
+              transition-all duration-300 focus:outline-none
+            "
             onClick={() => setOpen(true)}
           >
             <svg
@@ -66,11 +74,7 @@ export default function Navbar() {
               strokeWidth="2"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
@@ -86,11 +90,11 @@ export default function Navbar() {
         {/* Sidebar */}
         <div
           className={`fixed top-0 right-0 h-full w-1/2 md:w-1/4 bg-white shadow-lg z-40 
-            transform transition-all duration-300 ease-in-out
-            ${open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
-          `}
+          transform transition-all duration-300 ease-in-out
+          ${open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
+        `}
         >
-          {/* Tombol close */}
+          {/* Close Button */}
           <div className="flex justify-end p-4">
             <button onClick={() => setOpen(false)}>
               <svg
@@ -100,21 +104,16 @@ export default function Navbar() {
                 strokeWidth="2"
                 viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Menu Items */}
+          {/* Menu */}
           <ul className="flex flex-col space-y-4 p-6 font-semibold text-[12px] lg:text-[16px] xl:text-[18px] text-black font-neutralsans">
             {menus.map((menu) => (
               <li key={menu.name} className="text-right">
                 {menu.link ? (
-                  // ✅ menu marketplace → buka link eksternal
                   <a
                     href={menu.link}
                     target="_blank"
@@ -124,7 +123,6 @@ export default function Navbar() {
                     {menu.name}
                   </a>
                 ) : (
-                  // ✅ menu biasa → scroll
                   <button
                     onClick={() => handleScroll(menu.id!)}
                     className="block px-2 py-1 w-full text-right hover:underline"
