@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-12 lg:gap-x-30">
           {/* Logo */}
           <div className="flex justify-start">
-          <div className="max-md:mb-10 md:ml-5 w-54 sm:w-72 md:w-64 lg:w-72 xl:w-75 relative h-9 md:h-6  ">
+          <div className="max-md:mb-10 md:ml-5 w-54 sm:w-72 md:w-64 lg:w-72 xl:w-75 relative h-9 md:h-8 ">
   <Image
     src="/logo-test.svg"
     alt="Logo"
