@@ -41,10 +41,10 @@ const Product: React.FC = () => {
         <ProductCard
           image="/ptv2.png"
           title="Eau de Parfum | 50ML"
-          price="Rp 228.650"
+          price="Rp 188.300"
           oldPrice="Rp 269.000"
           ProdName="Parlor Tux"
-          discount="-15%"
+          discount="-30%"
           hoverTopText="Vanilla / Lavender / Sandalwood"
           hoverBottomText="Parlor Tux is our exclusive EDP variants inspired by the elegance of a parlor room filled with tuxedos. Designed for special occasions and as a true signature scent, it lets you carry the feeling of quiet luxury and timeless sophistication wherever you go."
         />
@@ -52,10 +52,10 @@ const Product: React.FC = () => {
         <ProductCard
           image="/cpv2.png"
           title="Eau de Parfum | 50ML"
-          price="Rp 228.650"
+          price="Rp 188.300"
           oldPrice="Rp 269.000"
           ProdName="Camellia Porch"
-          discount="-15%"
+          discount="-30%"
           hoverTopText="Fruity / Violet / Cashmeran"
           hoverBottomText="Camellia Porch is our exclusive EDP variants that captures the serene beauty of camellias blooming on a porch. From day to night, their charm never fades; always graceful, always captivating. That’s the exact feeling we want you to experience with every wear."
         />
