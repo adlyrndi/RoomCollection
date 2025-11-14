@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Crushed } from "next/font/google";
-import "./globals.css"; // hanya import CSS global sekali di sini
+import "./globals.css";
 import localFont from "next/font/local";
+import Script from "next/script"; // <-- tambah ini
 
 const neutralsans = localFont({
   src: [
@@ -11,8 +12,9 @@ const neutralsans = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-neutralsans", 
+  variable: "--font-neutralsans",
 });
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -33,9 +35,9 @@ export const metadata: Metadata = {
   title: "Room Collection",
   description: "Finest Perfume Collections",
   icons: {
-    icon: "/logo-abu.svg",       
-    shortcut: "/logo-abu.svg",   
-    apple: "/logo-abu.svg",      
+    icon: "/logo-abu.svg",
+    shortcut: "/logo-abu.svg",
+    apple: "/logo-abu.svg",
   },
 };
 
@@ -46,6 +48,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0MJPY5C5P4"
+        />
+        <Script id="gtag-init">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0MJPY5C5P4');
+          `}
+        </Script>
+      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${crushed.variable} ${neutralsans.variable} antialiased`}
       >
