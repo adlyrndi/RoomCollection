@@ -4,9 +4,9 @@ export default function AdsBar() {
   const words = [
     // "OUR WEBSITE IS CURRENTLY STILL UNDER DEVELOPMENT ",
     // "──────",
-    "Don’t miss our 11.11 Pay Day Sale! Available on all marketplaces only until 11 November 2025!",
+    "End of Year Sale is here! Get 30% off all items, Available on all marketplaces!.",
     "──────",
-    "Don’t miss our 11.11 Pay Day Sale! Available on all marketplaces only until 11 November 2025!",
+    "End of Year Sale is here! Get 30% off all items, Available on all marketplaces!.",
     "──────",
   ];
 
