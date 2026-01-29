@@ -4,7 +4,7 @@ export default function AdsBar() {
   const words = [
     // "OUR WEBSITE IS CURRENTLY STILL UNDER DEVELOPMENT ",
     // "──────",
-    "End of Year Sale is here! Get 30% off all items, Available on all marketplaces!.",
+    "Pop-up at Parfume Pop Market, Brickhall Fatmawati, 30 Jan – 1 Feb 2026 — don’t miss it!",
     "──────",
     "End of Year Sale is here! Get 30% off all items, Available on all marketplaces!.",
     "──────",
