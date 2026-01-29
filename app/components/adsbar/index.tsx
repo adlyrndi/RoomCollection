@@ -4,7 +4,7 @@ export default function AdsBar() {
   const words = [
     // "OUR WEBSITE IS CURRENTLY STILL UNDER DEVELOPMENT ",
     // "──────",
-    "Pop-up at Perfume Pop Market, Brickhall Fatmawati, 30 Jan – 1 Feb 2026 — don’t miss it!",
+    "We’re popping up at Perfume Pop Market, Brickhall Fatmawati, 30 Jan – 1 Feb 2026 — don’t miss it!",
     "──────",
     "Get 40% off at Perfume Pop Market.",
     "──────",
