@@ -41,7 +41,7 @@ const Product: React.FC = () => {
         <ProductCard
           image="/ptv2.png"
           title="Eau de Parfum | 50ML"
-          price="Rp 229.000"
+          price="Rp 189.000"
           oldPrice="Rp 269.000"
           ProdName="Parlor Tux"
           discount="-30%"
@@ -52,7 +52,7 @@ const Product: React.FC = () => {
         <ProductCard
           image="/cpv2.png"
           title="Eau de Parfum | 50ML"
-          price="Rp 229.000"
+          price="Rp 189.000"
           oldPrice="Rp 269.000"
           ProdName="Camellia Porch"
           discount="-30%"
